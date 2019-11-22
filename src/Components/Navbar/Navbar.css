@@ -1,0 +1,36 @@
+.nav_container {
+  height: 80px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+}
+
+.nav_container a {
+  color: white;
+  padding: 0.3rem;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.5s;
+}
+
+.nav_container a:hover {
+  border-bottom: 1px solid red;
+}
+
+.link_container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.link_container li {
+  display: inline-block;
+  padding-left: 3rem;
+}
