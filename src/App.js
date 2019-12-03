@@ -5,11 +5,13 @@ import Footer from './Components/Footer/Footer';
 import Navbar from './Components/Navbar/Navbar';
 import Episode from './Components/Episode/Episode';
 import EpisodeList from './Components/EpisodeList/EpisodeList';
+import EpisodeDetail from './Components/EpisodeDetail/EpisodeDetail';
 import {RssRequest} from './util/RequestRssData';
 import {EpisodesInJson} from './Components/EpisodesInJson/EpisodesInJson';
+import Player from './Components/Player/Player';
 let episodeList = [];
 
-for(let i=0; i<7; i++) {
+for(let i=0; i<13; i++) {
   episodeList.push(EpisodesInJson.channel.item[i]);
 }
 
@@ -22,8 +24,33 @@ class App extends React.Component {
     super(props);
     this.state = {
       episodes: episodeList,
+      selectedEpisode: episodeList[0],
+      detailPageActive: false,
+      nowPlay: episodeList[1],
     } ;
+    this.deactiveDetailPage = this.deactiveDetailPage.bind(this);
+    this.handleDetails = this.handleDetails.bind(this);
+    this.handleEpisodeChange = this.handleEpisodeChange.bind(this);
   }
+
+  handleDetails(episode) {
+  this.setState({
+    selectedEpisode: episode,
+    detailPageActive: true,
+  })
+}
+
+  deactiveDetailPage() {
+    this.setState({
+      detailPageActive: false
+    })
+  }
+
+  handleEpisodeChange() {
+    this.setState({
+      nowPlay: this.state.selectedEpisode,
+    })
+  };
 
   // componentDidMount() {
   //   // this.requestRss();
@@ -39,7 +66,11 @@ class App extends React.Component {
     return(
       <div>
         <Navbar />
-        <EpisodeList episodes={this.state.episodes}/>
+        <EpisodeList episodes={this.state.episodes} handleDetails={this.handleDetails}/>
+        <EpisodeDetail episodeSelected={this.state.selectedEpisode} active={this.state.detailPageActive} onClose={this.deactiveDetailPage} onEpisodeChange={this.handleEpisodeChange}/>
+        <Player track={this.state.nowPlay}
+          streamUrl={this.state.nowPlay.enclosure["@url"]}/>
+        {console.log(this.state.nowPlay.enclosure["@url"])}
         <Footer />
       </div>
     );

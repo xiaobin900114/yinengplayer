@@ -9,7 +9,7 @@ class Episode extends React.Component {
   }
 
   callDetail() {
-    this.props.handleDetails(this.props.episode);
+    this.props.handleDetails(this.props.episodeInfo);
   }
 
   render(){
