@@ -26,18 +26,11 @@ class EpisodeList extends React.Component {
     return(
       <div id="episode-list">
         <h1>Episodes</h1>
-         <ul id="offices">
-          {/*
-            officeList.map((office,index) => {
-              return <li key={index} onClick={() => this.handleOfficeChange(office)} className="office_name">{office}</li>
-            })
-          */}
-        </ul>
         <div id="img_container">
           {
             Object.keys(this.props.episodes).map(key => {
               let episodeInfo = this.props.episodes[key];
-              console.log(episodeInfo.image["@href"]);
+              // console.log(episodeInfo.image["@href"]);
               return <Episode key={key} episodeInfo={episodeInfo} handleDetails={this.props.handleDetails}/>;
             })
           }

@@ -28,7 +28,7 @@ class EpisodeDetail extends React.Component {
           <div id="episode_info">
             <div className="poster-play">
               <img src={this.props.episodeSelected.image["@href"]} alt=""/>
-              <button className="playbutton" onClick={this.handleEpisodeChange}>Play</button>
+              <button className="playbutton" onClick={this.props.onEpisodeChange}>Play</button>
             </div>
             <div id="episode_detail">
               <div>
