@@ -51,6 +51,7 @@
   width: 90%;
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   justify-content: space-around;
   padding: 3rem;
   margin: 2rem auto;
@@ -58,6 +59,7 @@
 
 #episode_detail {
   width: 60%;
+  min-width: 200px;
   margin: 0 2rem;
 }
 
