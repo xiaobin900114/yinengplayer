@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/yinengplayer/static/css/main.942dca3e.chunk.css",
+    "main.css": "/yinengplayer/static/css/main.112554fb.chunk.css",
     "main.js": "/yinengplayer/static/js/main.b86e2bfd.chunk.js",
     "main.js.map": "/yinengplayer/static/js/main.b86e2bfd.chunk.js.map",
     "runtime-main.js": "/yinengplayer/static/js/runtime-main.6d3fd7d6.js",
@@ -9,17 +9,17 @@
     "static/js/2.117fef97.chunk.js": "/yinengplayer/static/js/2.117fef97.chunk.js",
     "static/js/2.117fef97.chunk.js.map": "/yinengplayer/static/js/2.117fef97.chunk.js.map",
     "index.html": "/yinengplayer/index.html",
-    "precache-manifest.81fe652e860e1058a68615e5629928cc.js": "/yinengplayer/precache-manifest.81fe652e860e1058a68615e5629928cc.js",
+    "precache-manifest.d70c7c68ea9b0a24000aa34df5497be4.js": "/yinengplayer/precache-manifest.d70c7c68ea9b0a24000aa34df5497be4.js",
     "service-worker.js": "/yinengplayer/service-worker.js",
     "static/css/2.38096407.chunk.css.map": "/yinengplayer/static/css/2.38096407.chunk.css.map",
-    "static/css/main.942dca3e.chunk.css.map": "/yinengplayer/static/css/main.942dca3e.chunk.css.map",
+    "static/css/main.112554fb.chunk.css.map": "/yinengplayer/static/css/main.112554fb.chunk.css.map",
     "static/media/logo.svg": "/yinengplayer/static/media/logo.25bf045c.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.6d3fd7d6.js",
     "static/css/2.38096407.chunk.css",
     "static/js/2.117fef97.chunk.js",
-    "static/css/main.942dca3e.chunk.css",
+    "static/css/main.112554fb.chunk.css",
     "static/js/main.b86e2bfd.chunk.js"
   ]
 }

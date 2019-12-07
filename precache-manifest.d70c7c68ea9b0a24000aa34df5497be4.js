@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c0d1bc109956cb42a20e491072108684",
+    "revision": "136f352e520da498fe990368a5568526",
     "url": "/yinengplayer/index.html"
   },
   {
@@ -8,15 +8,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/yinengplayer/static/css/2.38096407.chunk.css"
   },
   {
-    "revision": "b63023fdcc9a081afe12",
-    "url": "/yinengplayer/static/css/main.942dca3e.chunk.css"
+    "revision": "ba005fa8392f9f7947d9",
+    "url": "/yinengplayer/static/css/main.112554fb.chunk.css"
   },
   {
     "revision": "c232c647a01ab4d6ac05",
     "url": "/yinengplayer/static/js/2.117fef97.chunk.js"
   },
   {
-    "revision": "b63023fdcc9a081afe12",
+    "revision": "ba005fa8392f9f7947d9",
     "url": "/yinengplayer/static/js/main.b86e2bfd.chunk.js"
   },
   {
