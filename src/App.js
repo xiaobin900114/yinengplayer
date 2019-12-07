@@ -29,7 +29,7 @@ let episodeList = [];
 // let numOfEpisodes = 0;
 //
 
-for(let i=0; i<200; i++) {
+EpisodesInJson.channel.item.map((item,i) => {
   if(EpisodesInJson.channel.item[i].image){
     if(EpisodesInJson.channel.item[i].image["@href"].slice(-3) == "png") {
       EpisodesInJson.channel.item[i].image["@href"] = EpisodesInJson.channel.item[i].image["@href"].slice(0,-9) + "300x300.png";
@@ -42,7 +42,22 @@ for(let i=0; i<200; i++) {
     console.log(EpisodesInJson.channel.item[i].description);
     episodeList.push(EpisodesInJson.channel.item[i]);
   }
-}
+})
+
+// for(let i=0; i<200; i++) {
+//   if(EpisodesInJson.channel.item[i].image){
+//     if(EpisodesInJson.channel.item[i].image["@href"].slice(-3) == "png") {
+//       EpisodesInJson.channel.item[i].image["@href"] = EpisodesInJson.channel.item[i].image["@href"].slice(0,-9) + "300x300.png";
+//     } else {
+//       EpisodesInJson.channel.item[i].image["@href"] = EpisodesInJson.channel.item[i].image["@href"].slice(0,-9) + "300x300.jpg";
+//     };
+//     if(EpisodesInJson.channel.item[i].description) {
+//       EpisodesInJson.channel.item[i].description = EpisodesInJson.channel.item[i].description.replace(/<br\s*\/?>/mg,"\n")
+//     }
+//     console.log(EpisodesInJson.channel.item[i].description);
+//     episodeList.push(EpisodesInJson.channel.item[i]);
+//   }
+// }
 
 class App extends React.Component {
   constructor(props) {
@@ -111,10 +126,7 @@ class App extends React.Component {
         <Navbar />
         <EpisodeList episodes={this.state.episodes} handleDetails={this.handleDetails} loadEpisodes={this.loadEpisodes}/>
         <EpisodeDetail episodeSelected={this.state.selectedEpisode} active={this.state.detailPageActive} onClose={this.deactiveDetailPage} onEpisodeChange={this.handleEpisodeChange}/>
-
         <Player audioLists={this.state.nowPlay}/>
-
-        <Footer />
       </div>
     );
   }
