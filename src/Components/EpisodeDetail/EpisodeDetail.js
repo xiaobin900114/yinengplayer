@@ -22,13 +22,13 @@ class EpisodeDetail extends React.Component {
 
 
     return(
-      <div >
+      <div>
         <div className={episodeDetail}>
           <img src={arrow}  onClick={this.props.onClose} alt="" className="arrow" />
           <div id="episode_info">
             <div className="poster-play">
               <img src={this.props.episodeSelected.image["@href"]} alt=""/>
-              <button className="playbutton" onClick={this.props.onEpisodeChange}>Play</button>
+              <button className="playbutton" onClick={this.props.onEpisodeChange}>Add to Playlist</button>
             </div>
             <div id="episode_detail">
               <div>

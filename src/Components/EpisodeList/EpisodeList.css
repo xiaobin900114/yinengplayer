@@ -2,7 +2,7 @@
   height: auto;
   color: #BFB2AD;
   width: 100%;
-  margin: auto;
+  margin: 2rem auto;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -11,6 +11,7 @@
 
 #episode-list h1 {
   padding: 0 3rem;
+  color: black;
 }
 
 #offices {

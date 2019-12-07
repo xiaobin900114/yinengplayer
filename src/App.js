@@ -6,23 +6,41 @@ import Navbar from './Components/Navbar/Navbar';
 import Episode from './Components/Episode/Episode';
 import EpisodeList from './Components/EpisodeList/EpisodeList';
 import EpisodeDetail from './Components/EpisodeDetail/EpisodeDetail';
-import {RssRequest} from './util/RequestRssData';
+// import {RssRequest} from './util/RequestRssData';
 import {EpisodesInJson} from './Components/EpisodesInJson/EpisodesInJson';
 import Player from './Components/Player/2ndPlayer';
+// import InfiniteScroll from 'react-infinite-scroller';
 
 let episodeList = [];
 
-for(let i=0; i<30; i++) {
-  if(EpisodesInJson.channel.item[i].image){
-    episodeList.push(EpisodesInJson.channel.item[i]);
-  }
-}
+// for(let i=0; i<1; i++) {
+//   if(EpisodesInJson.channel.item[i].image){
+//     episodeList.push(EpisodesInJson.channel.item[i]);
+//   }
+// }
+//
+// for(let j=0; j<episodeList.length; j++) {
+//   if(episodeList[j].image["@href"].slice(-3) == "png") {
+//     episodeList[j].image["@href"] = episodeList[j].image["@href"].slice(0,-9) + "300x300.png";
+//   } else {
+//     episodeList[j].image["@href"] = episodeList[j].image["@href"].slice(0,-9) + "300x300.jpg";
+//   }
+// }
+// let numOfEpisodes = 0;
+//
 
-for(let j=0; j<episodeList.length; j++) {
-  if(episodeList[j].image["@href"].slice(-3) == "png") {
-    episodeList[j].image["@href"] = episodeList[j].image["@href"].slice(0,-9) + "300x300.png";
-  } else {
-    episodeList[j].image["@href"] = episodeList[j].image["@href"].slice(0,-9) + "300x300.jpg";
+for(let i=0; i<200; i++) {
+  if(EpisodesInJson.channel.item[i].image){
+    if(EpisodesInJson.channel.item[i].image["@href"].slice(-3) == "png") {
+      EpisodesInJson.channel.item[i].image["@href"] = EpisodesInJson.channel.item[i].image["@href"].slice(0,-9) + "300x300.png";
+    } else {
+      EpisodesInJson.channel.item[i].image["@href"] = EpisodesInJson.channel.item[i].image["@href"].slice(0,-9) + "300x300.jpg";
+    };
+    if(EpisodesInJson.channel.item[i].description) {
+      EpisodesInJson.channel.item[i].description = EpisodesInJson.channel.item[i].description.replace(/<br\s*\/?>/mg,"\n")
+    }
+    console.log(EpisodesInJson.channel.item[i].description);
+    episodeList.push(EpisodesInJson.channel.item[i]);
   }
 }
 
@@ -45,6 +63,20 @@ class App extends React.Component {
     this.deactiveDetailPage = this.deactiveDetailPage.bind(this);
     this.handleDetails = this.handleDetails.bind(this);
     this.handleEpisodeChange = this.handleEpisodeChange.bind(this);
+    this.loadEpisodes = this.loadEpisodes.bind(this);
+  }
+
+  loadEpisodes() {
+    for(let i=0; i<200; i++) {
+      if(EpisodesInJson.channel.item[i].image){
+        if(EpisodesInJson.channel.item[i].image["@href"].slice(-3) == "png") {
+          EpisodesInJson.channel.item[i].image["@href"] = EpisodesInJson.channel.item[i].image["@href"].slice(0,-9) + "300x300.png";
+        } else {
+          EpisodesInJson.channel.item[i].image["@href"] = EpisodesInJson.channel.item[i].image["@href"].slice(0,-9) + "300x300.jpg";
+        };
+        episodeList.push(EpisodesInJson.channel.item[i]);
+      }
+    }
   }
 
   handleDetails(episode) {
@@ -72,23 +104,16 @@ class App extends React.Component {
     // console.log(this.state.nowPlay);
   };
 
-  // componentDidMount() {
-  //   // this.requestRss();
-  //   axios.get('https://cors-anywhere.herokuapp.com/http://nj.lizhi.fm/rss/1310979.xml').then(data => {
-  //     console.log(data);
-  //   })
-  //
-  // requestRss() {
-  //   RssRequest.request()
-  // }
-
   render() {
+
     return(
       <div>
         <Navbar />
-        <EpisodeList episodes={this.state.episodes} handleDetails={this.handleDetails}/>
+        <EpisodeList episodes={this.state.episodes} handleDetails={this.handleDetails} loadEpisodes={this.loadEpisodes}/>
         <EpisodeDetail episodeSelected={this.state.selectedEpisode} active={this.state.detailPageActive} onClose={this.deactiveDetailPage} onEpisodeChange={this.handleEpisodeChange}/>
+
         <Player audioLists={this.state.nowPlay}/>
+
         <Footer />
       </div>
     );

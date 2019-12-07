@@ -2,6 +2,7 @@ import React from 'react';
 import "./EpisodeList.css";
 //import Offshoot from "../Offshoot";
 import Episode from "../Episode/Episode";
+import InfiniteScroll from 'react-infinite-scroller';
 
 const officeList = [
   "Los Angeles",
